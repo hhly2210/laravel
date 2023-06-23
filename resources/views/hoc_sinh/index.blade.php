@@ -17,7 +17,7 @@
                                 <th>ID</th>
                                 <th>Họ tên</th>
                                 <th>Thời gian cập nhật</th>
-                                <th></th>
+                                <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,7 +28,7 @@
                                     <td>{{ $hocSinh->ThoiGianCapNhap }}</td>
                                     <td>
                                         {{-- <a href="{{ route('hoc_sinh.edit', $hocSinh->ID) }}" class="btn btn-sm btn-primary">Sửa</a> --}}
-                                        {{-- <form action="{{ route('hoc_sinh.destroy', $hocSinh->id) }}" method="POST" style="display: inline-block">
+                                        {{-- <form action="{{ route('hoc_sinh.destroy', $hocSinh->ID) }}" method="POST" style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xoá?')">Xoá</button>
