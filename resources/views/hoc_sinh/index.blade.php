@@ -23,11 +23,11 @@
                         <tbody>
                             @foreach ($hocSinhs as $hocSinh)
                                 <tr>
-                                    <td>{{ $hocSinh->id }}</td>
+                                    <td>{{ $hocSinh->ID }}</td>
                                     <td>{{ $hocSinh->HoTen }}</td>
                                     <td>{{ $hocSinh->ThoiGianCapNhap }}</td>
                                     <td>
-                                        {{-- <a href="{{ route('hoc_sinh.edit', $hocSinh->id) }}" class="btn btn-sm btn-primary">Sửa</a> --}}
+                                        {{-- <a href="{{ route('hoc_sinh.edit', $hocSinh->ID) }}" class="btn btn-sm btn-primary">Sửa</a> --}}
                                         {{-- <form action="{{ route('hoc_sinh.destroy', $hocSinh->id) }}" method="POST" style="display: inline-block">
                                             @csrf
                                             @method('DELETE')

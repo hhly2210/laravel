@@ -61,8 +61,8 @@ class HocSinhController extends Controller
     public function update(Request $request, $id)
     {
         $hocSinh = HocSinh::find($id);
-        $hocSinh->ho_ten = $request->ho_ten;
-        $hocSinh->thoi_gian_cap_nhap = now();
+        $hocSinh->HoTen = $request->HoTen;
+        $hocSinh->ThoiGianCapNhap = now();
         $hocSinh->save();
 
         return redirect()->route('hoc_sinh.index')->with('success', 'Cập nhật thành công!');

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('hoc_sinhs', function (Blueprint $table) {
             $table->id();
             $table->string('HoTen');
-            $table->timestamp('ThoiGianCapNhap')->nullable();
+            $table->dateTime('ThoiGianCapNhap');
             $table->timestamps();
         });
     }
