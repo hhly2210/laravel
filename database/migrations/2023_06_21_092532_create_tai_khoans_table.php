@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('tai_khoans', function (Blueprint $table) {
             $table->id();
-            $table->string('ho_va_ten');
-            $table->string('ten_dang_nhap')->unique();
-            $table->string('mat_khau');
-            $table->foreignId('id_quyen')->constrained('quyen');
+            $table->string('HoVaTen');
+            $table->string('TenDangNhap')->unique();
+            $table->string('MatKhau');
+            $table->foreignId('IDQuyen')->constrained('quyen');
             $table->timestamps();
         });
     }

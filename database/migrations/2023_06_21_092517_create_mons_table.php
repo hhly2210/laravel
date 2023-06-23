@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('mons', function (Blueprint $table) {
             $table->id();
-            $table->string('ten_mon');
-            $table->timestamp('thoi_gian_cap_nhap')->nullable();
+            $table->string('TenMon');
+            $table->timestamp('ThoiGianCapNhap')->nullable();
             $table->timestamps();
         });
     }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('hoc_sinhs', function (Blueprint $table) {
             $table->id();
-            $table->string('ho_ten');
-            $table->timestamp('thoi_gian_cap_nhap')->nullable();
+            $table->string('HoTen');
+            $table->timestamp('ThoiGianCapNhap')->nullable();
             $table->timestamps();
         });
     }

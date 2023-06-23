@@ -31,8 +31,8 @@ class HocSinhController extends Controller
     public function store(Request $request)
     {
         $hocSinh = new HocSinh;
-        $hocSinh->ho_ten = $request->ho_ten;
-        $hocSinh->thoi_gian_cap_nhap = now();
+        $hocSinh->HoTen = $request->HoTen;
+        $hocSinh->ThoiGianCapNhap = now();
         $hocSinh->save();
 
         return redirect()->route('hoc_sinh.index')->with('success', 'Thêm thành công!');

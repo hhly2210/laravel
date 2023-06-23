@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('hoso_diems', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_hoc_sinh')->constrained('hoc_sinh');
-            $table->foreignId('id_mon')->constrained('mon');
-            $table->float('diem');
-            $table->timestamp('thoi_gian_cap_nhap')->nullable();
+            $table->foreignId('IDHocSinh')->constrained('hoc_sinh');
+            $table->foreignId('IDMon')->constrained('mon');
+            $table->float('Diem');
+            $table->timestamp('ThoiGianCapNhap')->nullable();
             $table->timestamps();
         });
     }

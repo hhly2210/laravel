@@ -24,8 +24,8 @@
                             @foreach ($hocSinhs as $hocSinh)
                                 <tr>
                                     <td>{{ $hocSinh->id }}</td>
-                                    <td>{{ $hocSinh->ho_ten }}</td>
-                                    <td>{{ $hocSinh->thoi_gian_cap_nhap }}</td>
+                                    <td>{{ $hocSinh->HoTen }}</td>
+                                    <td>{{ $hocSinh->ThoiGianCapNhap }}</td>
                                     <td>
                                         {{-- <a href="{{ route('hoc_sinh.edit', $hocSinh->id) }}" class="btn btn-sm btn-primary">Sửa</a> --}}
                                         {{-- <form action="{{ route('hoc_sinh.destroy', $hocSinh->id) }}" method="POST" style="display: inline-block">
