@@ -15,9 +15,9 @@ use App\Http\Controllers\MonController;
 |
 */
 
-// Route::get('/hoc_sinh', function () {
-//     return view('index');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::resource('hoc_sinh', HocSinhController::class);
 Route::resource('mon', MonController::class);
 Route::resource('hoso_diem', HosoDiemController::class);
