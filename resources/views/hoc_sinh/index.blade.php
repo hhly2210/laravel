@@ -23,21 +23,21 @@
                                     <td>{{ $hocSinh->id }}</td>
                                     <td>{{ $hocSinh->ho_ten }}</td>
                                     <td>{{ $hocSinh->thoi_gian_cap_nhap }}</td>
-                                    {{-- <td>
+                                    <td>
                                         <a href="{{ route('hoc_sinh.edit', $hocSinh->id) }}" class="btn btn-sm btn-primary">Sửa</a>
-                                        <form action="{{ route('hoc_sinh.destroy', $hocSinh->id) }}" method="POST" style="display: inline-block">
+                                        {{-- <form action="{{ route('hoc_sinh.destroy', $hocSinh->id) }}" method="POST" style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Bạn có chắc muốn xoá?')">Xoá</button>
-                                        </form>
-                                    </td> --}}
+                                        </form> --}}
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
                 <div class="card-footer text-end">
-                    {{-- <a href="{{ route('hoc_sinh.create') }}" class="btn btn-primary">Thêm mới</a> --}}
+                    <a href="{{ route('hoc_sinh.create') }}" class="btn btn-primary">Thêm mới</a>
                 </div>
             </div>
         </div>
