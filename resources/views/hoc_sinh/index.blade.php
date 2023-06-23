@@ -7,6 +7,9 @@
                 <div class="card-header">
                     <h5 class="card-title">Danh sách học sinh</h5>
                 </div>
+                <div class="card-footer text-end">
+                    <a href="{{ route('hoc_sinh.create') }}" class="btn btn-primary">Thêm mới</a>
+                </div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
@@ -24,7 +27,7 @@
                                     <td>{{ $hocSinh->ho_ten }}</td>
                                     <td>{{ $hocSinh->thoi_gian_cap_nhap }}</td>
                                     <td>
-                                        <a href="{{ route('hoc_sinh.edit', $hocSinh->id) }}" class="btn btn-sm btn-primary">Sửa</a>
+                                        {{-- <a href="{{ route('hoc_sinh.edit', $hocSinh->id) }}" class="btn btn-sm btn-primary">Sửa</a> --}}
                                         {{-- <form action="{{ route('hoc_sinh.destroy', $hocSinh->id) }}" method="POST" style="display: inline-block">
                                             @csrf
                                             @method('DELETE')
@@ -35,9 +38,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="card-footer text-end">
-                    <a href="{{ route('hoc_sinh.create') }}" class="btn btn-primary">Thêm mới</a>
                 </div>
             </div>
         </div>
