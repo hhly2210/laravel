@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Quyen;
 use Illuminate\Http\Request;
 
 class QuyenController extends Controller
@@ -11,7 +11,8 @@ class QuyenController extends Controller
      */
     public function index()
     {
-        //
+        $quyens = Quyen::all();
+        return view('quyen.index', compact('quyens'));
     }
 
     /**
@@ -19,7 +20,7 @@ class QuyenController extends Controller
      */
     public function create()
     {
-        //
+        return view('quyen.create');
     }
 
     /**
@@ -41,9 +42,10 @@ class QuyenController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( $id)
     {
-        //
+        $quyen = Quyen::find($id);
+        return view('quyen.edit', compact('quyen'));
     }
 
     /**
@@ -57,8 +59,11 @@ class QuyenController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $quyen = Quyen::find($id);
+        $quyen->delete();
+
+        return redirect()->route('quyen.index')->with('success', 'Xoá thành công!');
     }
 }

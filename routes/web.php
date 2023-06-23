@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HocSinhController;
+use App\Http\Controllers\MonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/hoc_sinh', function () {
+//     return view('index');
+// });
+Route::resource('hoc_sinh', HocSinhController::class);
+Route::resource('mon', MonController::class);
+Route::resource('hoso_diem', HosoDiemController::class);
+Route::resource('quyen', QuyenController::class);
+Route::resource('tai_khoan', TaiKhoanController::class);

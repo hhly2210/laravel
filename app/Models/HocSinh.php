@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class HocSinh extends Model
 {
+    protected $table = 'hocsinh';
     use HasFactory;
 }

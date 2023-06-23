@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HocSinh;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HocSinhController extends Controller
 {
@@ -11,7 +13,8 @@ class HocSinhController extends Controller
      */
     public function index()
     {
-        //
+        $hocSinhs = HocSinh::all();
+        return view('hoc_sinh.index', compact('hocSinhs'));
     }
 
     /**
@@ -19,7 +22,7 @@ class HocSinhController extends Controller
      */
     public function create()
     {
-        //
+        return view('hoc_sinh.create');
     }
 
     /**
@@ -27,7 +30,12 @@ class HocSinhController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hocSinh = new HocSinh;
+        $hocSinh->ho_ten = $request->ho_ten;
+        $hocSinh->thoi_gian_cap_nhap = now();
+        $hocSinh->save();
+
+        return redirect()->route('hoc_sinh.index')->with('success', 'Thêm thành công!');
     }
 
     /**
@@ -41,24 +49,33 @@ class HocSinhController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $hocSinh = HocSinh::find($id);
+        return view('hoc_sinh.edit', compact('hocSinh'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $hocSinh = HocSinh::find($id);
+        $hocSinh->ho_ten = $request->ho_ten;
+        $hocSinh->thoi_gian_cap_nhap = now();
+        $hocSinh->save();
+
+        return redirect()->route('hoc_sinh.index')->with('success', 'Cập nhật thành công!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $hocSinh = HocSinh::find($id);
+        $hocSinh->delete();
+
+        return redirect()->route('hoc_sinh.index')->with('success', 'Xoá thành công!');
     }
 }

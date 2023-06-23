@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Mon;
 use Illuminate\Http\Request;
 
 class MonController extends Controller
@@ -11,7 +11,8 @@ class MonController extends Controller
      */
     public function index()
     {
-        //
+        $mons = Mon::all();
+        return view('mon.index', compact('mons'));
     }
 
     /**
@@ -19,7 +20,7 @@ class MonController extends Controller
      */
     public function create()
     {
-        //
+        return view('mon.create');
     }
 
     /**
@@ -27,7 +28,12 @@ class MonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mon = new Mon;
+        $mon->ten_mon = $request->ten_mon;
+        $mon->thoi_gian_cap_nhap = now();
+        $mon->save();
+
+        return redirect()->route('mon.index')->with('success', 'Thêm thành công!');
     }
 
     /**
@@ -41,24 +47,32 @@ class MonController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $mon = Mon::find($id);
+        return view('mon.edit', compact('mon'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $mon = Mon::find($id);
+        $mon->ten_mon = $request->ten_mon;
+        $mon->thoi_gian_cap_nhap = now();
+
+        return redirect()->route('mon.index')->with('success','Cập nhập thành công ❤️');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $mon = Mon::find($id);
+        $mon->delete();
+
+        return redirect()->route('mon.index')->with('success','Xoá thành công ❤️');
     }
 }

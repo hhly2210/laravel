@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\HosoDiem;
 use Illuminate\Http\Request;
 
 class HosoDiemController extends Controller
@@ -11,7 +11,8 @@ class HosoDiemController extends Controller
      */
     public function index()
     {
-        //
+        $hosoDiems = HosoDiem::all();
+        return view('hoso_diem.index', compact('hosoDiems'));
     }
 
     /**
@@ -19,7 +20,7 @@ class HosoDiemController extends Controller
      */
     public function create()
     {
-        //
+        return view('hoso_diem.create');
     }
 
     /**
@@ -27,7 +28,12 @@ class HosoDiemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hosoDiem = new HosoDiem;
+        $hosoDiem->diem = $request->diem;
+        $hosoDiem->thoi_gian_cap_nhap = now();
+        $hosoDiem->save();
+
+        return redirect()->route('hoso_diem.index')->with('success', 'Thêm thành công!');
     }
 
     /**
@@ -41,15 +47,16 @@ class HosoDiemController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $hosoDiem = HosoDiem::find($id);
+        return view('hoso_diem.edit', compact('hosoDiem'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -59,6 +66,9 @@ class HosoDiemController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $hosoDiem = HosoDiem::find($id);
+        $hosoDiem->delete();
+
+        return redirect()->route('hoso_diem.index')->with('success', 'Xoá thành công!');
     }
 }

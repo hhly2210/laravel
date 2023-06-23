@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\TaiKhoan;
 use Illuminate\Http\Request;
 
 class TaiKhoanController extends Controller
@@ -11,7 +11,8 @@ class TaiKhoanController extends Controller
      */
     public function index()
     {
-        //
+        $taiKhoans = TaiKhoan::all();
+        return view('tai_khoan.index', compact('taiKhoans'));
     }
 
     /**
@@ -19,7 +20,7 @@ class TaiKhoanController extends Controller
      */
     public function create()
     {
-        //
+        return view('tai_khoan.create');
     }
 
     /**
@@ -41,15 +42,16 @@ class TaiKhoanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $taiKhoan = TaiKhoan::find($id);
+        return view('tai_khoan.edit', compact('taiKhoan'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -57,8 +59,11 @@ class TaiKhoanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $taiKhoan = TaiKhoan::find($id);
+        $taiKhoan->delete();
+
+        return redirect()->route('tai_khoan.index')->with('success', 'Xoá thành công!');
     }
 }
