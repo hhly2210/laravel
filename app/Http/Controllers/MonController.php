@@ -62,6 +62,7 @@ class MonController extends Controller
         $mon = Mon::find($id);
         $mon->TenMon = $request->TenMon;
         $mon->ThoiGianCapNhap = now();
+        $mon->save();
 
         return redirect()->route('mon.index')->with('success','Cập nhập thành công ❤️');
     }
