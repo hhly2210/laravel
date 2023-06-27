@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('hocsinh', function (Blueprint $table) {
             $table->id();
-            $table->string('HoTen');
-            $table->dateTime('ThoiGianCapNhap');
+            $table->string('HoTen')->nullable();
+            $table->dateTime('ThoiGianCapNhap')->nullable();
             $table->timestamps();
         });
     }

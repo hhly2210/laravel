@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('hosodiem', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('IDHocSinh')->constrained('hoc_sinh');
-            $table->foreignId('IDMon')->constrained('mon');
-            $table->float('Diem');
+            $table->foreignId('IDHocSinh')->references('id')->on('hocsinh')->cascadeOnDelete();
+            $table->foreignId('IDMon')->references('id')->on('mon')->cascadeOnDelete();
+            $table->float('Diem')->nullable();
             $table->timestamp('ThoiGianCapNhap')->nullable();
             $table->timestamps();
         });
