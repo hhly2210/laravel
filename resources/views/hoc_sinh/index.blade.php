@@ -11,6 +11,11 @@
                     <a href="{{ route('hoc_sinh.create') }}" class="btn btn-primary">Thêm mới</a>
                 </div>
                 <div class="card-body">
+                    @if (Session::has('success'))
+                    <div class="alert alert-success">
+                        {{ Session::get('success') }}
+                    </div>
+                    @endif
                     <table class="table">
                         <thead>
                             <tr>

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HocSinhController;
 use App\Http\Controllers\MonController;
+use App\Http\Controllers\HosoDiemController;
+use App\Http\Controllers\QuyenController;
+use App\Http\Controllers\TaiKhoanController;
 
 /*
 |--------------------------------------------------------------------------

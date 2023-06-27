@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Mon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class MonController extends Controller
 {
@@ -29,8 +30,8 @@ class MonController extends Controller
     public function store(Request $request)
     {
         $mon = new Mon;
-        $mon->ten_mon = $request->ten_mon;
-        $mon->thoi_gian_cap_nhap = now();
+        $mon->TenMon = $request->TenMon;
+        $mon->ThoiGianCapNhap = now();
         $mon->save();
 
         return redirect()->route('mon.index')->with('success', 'Thêm thành công!');
@@ -59,8 +60,8 @@ class MonController extends Controller
     public function update(Request $request, $id)
     {
         $mon = Mon::find($id);
-        $mon->ten_mon = $request->ten_mon;
-        $mon->thoi_gian_cap_nhap = now();
+        $mon->TenMon = $request->TenMon;
+        $mon->ThoiGianCapNhap = now();
 
         return redirect()->route('mon.index')->with('success','Cập nhập thành công ❤️');
     }
