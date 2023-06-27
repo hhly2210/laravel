@@ -2,6 +2,6 @@
     @csrf
     @method('PUT')
     <label for="HoTen">Họ tên:</label>
-    <input type="text" name="HoTen" value="{{ $hocsinh->ho_ten }}" required>
+    <input type="text" name="HoTen" value="{{ $hocSinh->HoTen }}" required>
     <button type="submit">Cập nhật</button>
 </form>
