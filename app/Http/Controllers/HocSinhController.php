@@ -13,8 +13,8 @@ class HocSinhController extends Controller
      */
     public function index()
     {
-        $hocSinhs = HocSinh::all();
-        return view('hoc_sinh.index', compact('hocSinhs'));
+        $hocSinhs = HocSinh::all()->sortByDesc('id');
+        return view('admin.hoc_sinh.index', compact('hocSinhs'));
     }
 
     /**
@@ -22,7 +22,7 @@ class HocSinhController extends Controller
      */
     public function create()
     {
-        return view('hoc_sinh.create');
+        return view('admin.hoc_sinh.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class HocSinhController extends Controller
     public function edit($id)
     {
         $hocSinh = HocSinh::find($id);
-        return view('hoc_sinh.edit', compact('hocSinh'));
+        return view('admin.hoc_sinh.edit', compact('hocSinh'));
     }
 
     /**

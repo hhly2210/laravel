@@ -11,7 +11,7 @@ class TaiKhoanController extends Controller
      */
     public function index()
     {
-        $taiKhoans = TaiKhoan::all();
+        $taiKhoans = TaiKhoan::all()->sortByDesc('id');
         return view('tai_khoan.index', compact('taiKhoans'));
     }
 

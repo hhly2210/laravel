@@ -11,7 +11,7 @@ class HosoDiemController extends Controller
      */
     public function index()
     {
-        $hosoDiems = HosoDiem::all();
+        $hosoDiems = HosoDiem::all()->sortByDesc('id');
         return view('hoso_diem.index', compact('hosoDiems'));
     }
 
@@ -29,8 +29,10 @@ class HosoDiemController extends Controller
     public function store(Request $request)
     {
         $hosoDiem = new HosoDiem;
-        $hosoDiem->diem = $request->diem;
-        $hosoDiem->thoi_gian_cap_nhap = now();
+        $hosoDiem->IDHocSinh = $request->IDHocSinh;
+        $hosoDiem->IDMon = $request->IDMon;
+        $hosoDiem->Diem = $request->Diem;
+        $hosoDiem->ThoiGianCapNhap = now();
         $hosoDiem->save();
 
         return redirect()->route('hoso_diem.index')->with('success', 'Thêm thành công!');

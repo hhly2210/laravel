@@ -28,7 +28,11 @@ class QuyenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $quyen = new Quyen;
+        $quyen->TenQuyen = $request->TenQuyen;
+        $quyen->save();
+
+        return redirect()->route('quyen.index')->with('success', 'Thêm thành công!');
     }
 
     /**
@@ -51,9 +55,13 @@ class QuyenController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $quyen = Quyen::find($id);
+        $quyen->TenQuyen = $request->TenQuyen;
+        $quyen->save();
+
+        return redirect()->route('quyen.index')->with('success', 'Cập nhật thành công!');
     }
 
     /**

@@ -21,6 +21,9 @@ use App\Http\Controllers\TaiKhoanController;
 Route::get('/', function () {
     return view('welcome');
 });
+// Admin OK
+Route::get('/admin/hoc_sinh', [HocSinhController::class, 'index']);
+// 
 Route::resource('hoc_sinh', HocSinhController::class);
 Route::resource('mon', MonController::class);
 Route::resource('hoso_diem', HosoDiemController::class);

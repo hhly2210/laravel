@@ -12,7 +12,7 @@ class MonController extends Controller
      */
     public function index()
     {
-        $mons = Mon::all();
+        $mons = Mon::all()->sortByDesc('id');
         return view('mon.index', compact('mons'));
     }
 
