@@ -12,7 +12,7 @@ class TaiKhoanController extends Controller
     public function index()
     {
         $taiKhoans = TaiKhoan::all()->sortByDesc('id');
-        return view('tai_khoan.index', compact('taiKhoans'));
+        return view('admin.tai_khoan.index', compact('taiKhoans'));
     }
 
     /**
@@ -20,7 +20,7 @@ class TaiKhoanController extends Controller
      */
     public function create()
     {
-        return view('tai_khoan.create');
+        return view('admin.tai_khoan.create');
     }
 
     /**
@@ -45,7 +45,7 @@ class TaiKhoanController extends Controller
     public function edit($id)
     {
         $taiKhoan = TaiKhoan::find($id);
-        return view('tai_khoan.edit', compact('taiKhoan'));
+        return view('admin.tai_khoan.edit', compact('taiKhoan'));
     }
 
     /**

@@ -12,7 +12,7 @@ class HosoDiemController extends Controller
     public function index()
     {
         $hosoDiems = HosoDiem::all()->sortByDesc('id');
-        return view('hoso_diem.index', compact('hosoDiems'));
+        return view('admin.hoso_diem.index', compact('hosoDiems'));
     }
 
     /**
@@ -20,7 +20,7 @@ class HosoDiemController extends Controller
      */
     public function create()
     {
-        return view('hoso_diem.create');
+        return view('admin.hoso_diem.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class HosoDiemController extends Controller
     public function edit($id)
     {
         $hosoDiem = HosoDiem::find($id);
-        return view('hoso_diem.edit', compact('hosoDiem'));
+        return view('admin.hoso_diem.edit', compact('hosoDiem'));
     }
 
     /**

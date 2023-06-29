@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 // Admin OK
-Route::get('/admin/hoc_sinh', [HocSinhController::class, 'index']);
+// Route::get('/admin/hoc_sinh', [HocSinhController::class, 'index']);
 // 
 Route::resource('hoc_sinh', HocSinhController::class);
 Route::resource('mon', MonController::class);

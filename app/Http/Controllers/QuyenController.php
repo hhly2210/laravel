@@ -12,7 +12,7 @@ class QuyenController extends Controller
     public function index()
     {
         $quyens = Quyen::all();
-        return view('quyen.index', compact('quyens'));
+        return view('admin.quyen.index', compact('quyens'));
     }
 
     /**
@@ -20,7 +20,7 @@ class QuyenController extends Controller
      */
     public function create()
     {
-        return view('quyen.create');
+        return view('admin.quyen.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class QuyenController extends Controller
     public function edit( $id)
     {
         $quyen = Quyen::find($id);
-        return view('quyen.edit', compact('quyen'));
+        return view('admin.quyen.edit', compact('quyen'));
     }
 
     /**

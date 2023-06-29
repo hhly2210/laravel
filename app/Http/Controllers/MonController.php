@@ -13,7 +13,7 @@ class MonController extends Controller
     public function index()
     {
         $mons = Mon::all()->sortByDesc('id');
-        return view('mon.index', compact('mons'));
+        return view('admin.mon.index', compact('mons'));
     }
 
     /**
@@ -21,7 +21,7 @@ class MonController extends Controller
      */
     public function create()
     {
-        return view('mon.create');
+        return view('admin.mon.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class MonController extends Controller
     public function edit($id)
     {
         $mon = Mon::find($id);
-        return view('mon.edit', compact('mon'));
+        return view('admin.mon.edit', compact('mon'));
     }
 
     /**
